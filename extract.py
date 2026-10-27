@@ -1,3 +1,4 @@
+import os
 import pyexcel as p
 import pymysql
 from datetime import datetime
@@ -14,7 +15,7 @@ db = extract()
 # Connect to the database
 connection = pymysql.connect(host='localhost',
                              user='root',
-                             password='09112002',
+                             password=os.environ.get('DB_PASSWORD', ''),
                              db='netflix',
                              charset='utf8mb4',
                              cursorclass=pymysql.cursors.DictCursor)
